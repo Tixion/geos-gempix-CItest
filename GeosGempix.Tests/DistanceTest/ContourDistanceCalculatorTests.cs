@@ -5,7 +5,7 @@ namespace GeosGempix.Tests.DistanceTest;
 
 public class ContourDistanceCalculatorTests
 {
-    //Проверка на расстояние между контуром и контуром
+    //Проверка на расстояние между контуром и контуррррром
     [Theory]
     [InlineData(new double[]{3, -3, 3, 2, 8, 2, 8, -3}, 0)]
     [InlineData(new double[]{5, 5, 5, 10, 10, 10, 10, 5}, 0)]
