@@ -8,8 +8,8 @@ on:
     - '**.cs'
     - '**.csproj'
 
-#env:
-#  DOTNET_VERSION: '7.0.103' 
+env:
+  DOTNET_VERSION: '7.0.103' 
 
 jobs:
   build-and-test:
@@ -29,8 +29,8 @@ jobs:
 #      with:
 #        dotnet-version: ${{ env.DOTNET_VERSION }}
 #
-#    - name: Install dependencies
-#      run: dotnet restore
+    - name: Install dependencies
+      run: dotnet restore
 
     - name: Checkout
       uses: actions/checkout@v3
