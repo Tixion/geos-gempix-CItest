@@ -8,27 +8,32 @@ on:
     - '**.cs'
     - '**.csproj'
 
-env:
-  DOTNET_VERSION: '7.0.103' # The .NET SDK version to use
+#env:
+#  DOTNET_VERSION: '7.0.103' 
 
 jobs:
   build-and-test:
+    runs-on: windows-latest
+    timeout-minutes: 15
 
-    name: build-and-test-${{matrix.os}}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest]
+#    name: build-and-test-${{matrix.os}}
+#    runs-on: ${{ matrix.os }}
+#    strategy:
+#      matrix:
+#        os: [windows-latest]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+#    - uses: actions/checkout@v3
+#    - name: Setup .NET Core
+#      uses: actions/setup-dotnet@v3
+#      with:
+#        dotnet-version: ${{ env.DOTNET_VERSION }}
+#
+#    - name: Install dependencies
+#      run: dotnet restore
 
-    - name: Install dependencies
-      run: dotnet restore
+    - name: Checkout
+      uses: actions/checkout@v3
       
     - name: Build
       run: dotnet build --configuration Release --no-restore
