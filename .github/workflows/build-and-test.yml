@@ -24,13 +24,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        path:
+          ~/.csproj
+
+    - if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+      run: dotnet list package
+    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Install dependencies
-      run: dotnet restore
+#    - name: Install dependencies
+#      run: dotnet restore
       
     - name: Build
       run: dotnet build --configuration Release --no-restore
