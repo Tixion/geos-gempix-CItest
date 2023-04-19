@@ -16,7 +16,6 @@ env:
 jobs:
   build-and-test:
     runs-on: windows-latest
-    environment: dev
     timeout-minutes: 15
 
     steps:
@@ -35,3 +34,7 @@ jobs:
     
     - name: Test
       run: dotnet test --blame --no-restore --verbosity quiet
+  
+  review:
+    runs-on: windows-latest
+    environment: dev
